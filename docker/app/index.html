@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>IONOS Cloud Demo</title>
+    <title>IONOS CI/CD Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .box {
+            background: #1f2937;
+            padding: 40px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            color: #60a5fa;
+        }
+
+        .status {
+            color: #34d399;
+            font-size: 22px;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>IONOS CI/CD Demo</h1>
+<div class="box">
 
-<p>
-Infrastructure deployed with Terraform.
+<h1>IONOS CI/CD Demo v2</h1>
+
+<p class="status">
+Deployment Successful 🚀
 </p>
 
 <p>
-Configuration managed with Ansible.
+Updated automatically through:
 </p>
 
 <p>
-Containerized with Docker.
+GitHub Actions → Ansible → Docker
 </p>
+
+<p>
+Commit: Testing automatic deployment
+</p>
+
+</div>
 
 </body>
 </html>
