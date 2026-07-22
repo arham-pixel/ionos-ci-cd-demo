@@ -1,0 +1,43 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+
+    - name: Install Ansible
+      run: |
+        python3 -m pip install ansible
+        ansible --version
+
+
+    - name: Setup SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan 212.227.233.122 >> ~/.ssh/known_hosts
+
+
+    - name: Test SSH connection
+      run: |
+        ssh ubuntu@212.227.233.122 "docker ps"
+
+
+    - name: Deploy application
+      run: |
+        ansible-playbook \
+        -i ansible/inventory.ini \
+        ansible/playbooks/deploy_app.yml
