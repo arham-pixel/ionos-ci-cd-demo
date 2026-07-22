@@ -1,0 +1,12 @@
+services:
+
+  web:
+    build:
+      context: ./app
+
+    container_name: ionos-demo-web
+
+    ports:
+      - "80:80"
+
+    restart: always
