@@ -1,0 +1,39 @@
+---
+- name: Deploy application
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Ensure Docker service is running
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+
+    - name: Create application directory
+      ansible.builtin.file:
+        path: /opt/ionos-demo
+        state: directory
+        mode: '0755'
+
+
+    - name: Copy docker compose file
+      ansible.builtin.copy:
+        src: ../../docker/docker-compose.yml
+        dest: /opt/ionos-demo/docker-compose.yml
+        mode: '0644'
+
+
+    - name: Copy application files
+      ansible.builtin.copy:
+        src: ../../docker/app/
+        dest: /opt/ionos-demo/app/
+        mode: '0755'
+
+
+    - name: Deploy application with docker compose
+      community.docker.docker_compose_v2:
+        project_src: /opt/ionos-demo
+        state: present
