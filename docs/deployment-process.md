@@ -5,7 +5,7 @@
 The application deployment follows this sequence:
 
 
-Developer
+Source Repository
    |
    v
 GitHub Repository
@@ -28,14 +28,14 @@ Nginx Container
 
 ## Deployment Steps
 
-1. Code changes are pushed to the main branch.
+1. Changes are pushed to the main branch.
 
-2. GitHub Actions starts automatically.
+2. GitHub Actions starts the deployment workflow.
 
-3. The workflow authenticates with the server.
+3. The workflow establishes SSH access to the server.
 
-4. Ansible transfers application files.
+4. Ansible transfers the application configuration.
 
-5. Docker Compose rebuilds the container.
+5. Docker Compose updates the container deployment.
 
-6. The updated application becomes available.
+6. The updated application becomes available through the web service.
