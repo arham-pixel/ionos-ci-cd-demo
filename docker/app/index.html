@@ -17,34 +17,44 @@
 body {
 
     margin:0;
-    background:#020617;
-    color:#e2e8f0;
-    font-family:"Courier New", monospace;
+    background:#0b1220;
+    color:#e5e7eb;
+    font-family:Arial, Helvetica, sans-serif;
 
 }
 
 
-.page {
+.container {
 
-    min-height:100vh;
-    padding:40px;
+    max-width:1100px;
+    margin:auto;
+    padding:50px 30px;
 
 }
 
 
-.header {
+header {
 
     border-bottom:1px solid #334155;
-    padding-bottom:25px;
-    margin-bottom:30px;
+    padding-bottom:30px;
+    margin-bottom:40px;
 
 }
 
 
 h1 {
 
-    color:#38bdf8;
-    font-size:32px;
+    font-size:38px;
+    color:#ffffff;
+    margin-bottom:10px;
+
+}
+
+
+.subtitle {
+
+    color:#94a3b8;
+    font-size:18px;
 
 }
 
@@ -52,35 +62,66 @@ h1 {
 h2 {
 
     color:#38bdf8;
-    border-bottom:1px solid #334155;
-    padding-bottom:10px;
+    margin-top:40px;
+
+}
+
+
+h3 {
+
+    color:#ffffff;
 
 }
 
 
 .section {
 
-    margin-bottom:40px;
+    margin-bottom:50px;
 
 }
 
 
-.box {
+.card {
 
-    background:#0f172a;
-    border:1px solid #334155;
-    border-radius:8px;
-    padding:20px;
+    background:#111827;
+    border:1px solid #263449;
+    border-radius:12px;
+    padding:25px;
     margin-top:20px;
 
 }
 
 
-.pipeline {
+.grid {
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+
+}
+
+
+.item {
+
+    background:#0f172a;
+    border-left:3px solid #38bdf8;
+    padding:18px;
+
+}
+
+
+.item span {
+
+    color:#94a3b8;
+    font-size:14px;
+
+}
+
+
+.architecture {
 
     text-align:center;
-    font-size:18px;
-    line-height:2.2;
+    padding:30px;
 
 }
 
@@ -88,10 +129,11 @@ h2 {
 .node {
 
     display:inline-block;
-    padding:12px 25px;
+    background:#111827;
     border:1px solid #38bdf8;
-    border-radius:6px;
-    background:#0f172a;
+    padding:14px 25px;
+    border-radius:8px;
+    margin:8px;
     color:white;
 
 }
@@ -105,34 +147,54 @@ h2 {
 }
 
 
-.split {
-
-    border-top:2px solid #38bdf8;
-    margin:60px 0;
-
-}
-
-
 ul {
 
-    line-height:2;
-
-}
-
-
-.footer {
-
-    margin-top:50px;
-    border-top:1px solid #334155;
-    padding-top:20px;
-    color:#94a3b8;
+    line-height:1.9;
 
 }
 
 
 .terminal {
 
+    background:#020617;
+    border:1px solid #334155;
+    border-radius:10px;
+    padding:20px;
+    font-family:"Courier New", monospace;
     color:#22c55e;
+
+}
+
+
+.cursor {
+
+    animation:blink 1s infinite;
+
+}
+
+
+@keyframes blink {
+
+    50% {
+        opacity:0;
+    }
+
+}
+
+
+.divider {
+
+    border-top:1px solid #334155;
+    margin:60px 0;
+
+}
+
+
+.footer {
+
+    color:#64748b;
+    text-align:center;
+    padding:30px;
 
 }
 
@@ -145,62 +207,83 @@ ul {
 <body>
 
 
-<div class="page">
+<div class="container">
 
 
-<div class="header">
+<header>
 
 <h1>
-CI/CD Infrastruktur Deployment
+CI/CD Infrastructure Deployment
 </h1>
 
-<p>
-Cloud Automation Architecture
+<p class="subtitle">
+Cloud infrastructure provisioning and automated application deployment
 </p>
 
-</div>
+</header>
 
 
 
-<div class="section">
+<section class="section">
 
 
 <h2>Deutsch</h2>
 
 
-<div class="box">
+<div class="card">
 
-<h3>Technologien</h3>
+<h3>Technologie Stack</h3>
 
 
-<ul>
+<div class="grid">
 
-<li>IONOS Cloud</li>
-<li>Terraform</li>
-<li>Ansible</li>
-<li>Docker</li>
-<li>GitHub Actions</li>
-<li>Ubuntu Server</li>
-<li>Nginx</li>
 
-</ul>
+<div class="item">
+<strong>Infrastructure</strong><br>
+<span>Terraform</span>
+</div>
+
+
+<div class="item">
+<strong>Configuration</strong><br>
+<span>Ansible</span>
+</div>
+
+
+<div class="item">
+<strong>Container</strong><br>
+<span>Docker</span>
+</div>
+
+
+<div class="item">
+<strong>Automation</strong><br>
+<span>GitHub Actions</span>
+</div>
+
+
+<div class="item">
+<strong>Server</strong><br>
+<span>Ubuntu Linux / Nginx</span>
+</div>
+
+
+</div>
 
 
 </div>
 
 
 
-<div class="box">
+
+<div class="card architecture">
 
 
-<h3>System Workflow</h3>
-
-
-<div class="pipeline">
+<h3>Deployment Architektur</h3>
 
 
 <div class="node">
-GitHub Repository
+Git Repository
 </div>
 
 
@@ -220,7 +303,7 @@ GitHub Actions
 
 
 <div class="node">
-Ansible Configuration
+Ansible
 </div>
 
 
@@ -230,7 +313,7 @@ Ansible Configuration
 
 
 <div class="node">
-IONOS Cloud Server
+Cloud Server
 </div>
 
 
@@ -250,18 +333,16 @@ Docker Container
 
 
 <div class="node">
-Nginx Web Service
+Nginx Service
 </div>
 
 
 </div>
 
 
-</div>
 
 
-
-<div class="box">
+<div class="card">
 
 
 <h3>Durchgeführte Aktionen</h3>
@@ -269,13 +350,13 @@ Nginx Web Service
 
 <ul>
 
-<li>Cloud Infrastruktur bereitgestellt</li>
+<li>Cloud Infrastruktur mit Terraform bereitgestellt</li>
 
-<li>Server Konfiguration automatisiert</li>
+<li>Server Konfiguration mit Ansible automatisiert</li>
 
-<li>Docker Container erstellt</li>
+<li>Container Deployment mit Docker eingerichtet</li>
 
-<li>Deployment Workflow eingerichtet</li>
+<li>CI/CD Workflow mit GitHub Actions integriert</li>
 
 </ul>
 
@@ -283,41 +364,65 @@ Nginx Web Service
 </div>
 
 
-</div>
+</section>
 
 
 
 
 
-<div class="split"></div>
+<div class="divider"></div>
 
 
 
 
 
-<div class="section">
+<section class="section">
 
 
 <h2>English</h2>
 
 
-<div class="box">
+
+<div class="card">
 
 
-<h3>Technologies</h3>
+<h3>Technology Stack</h3>
 
 
-<ul>
+<div class="grid">
 
-<li>IONOS Cloud</li>
-<li>Terraform</li>
-<li>Ansible</li>
-<li>Docker</li>
-<li>GitHub Actions</li>
-<li>Ubuntu Server</li>
-<li>Nginx</li>
 
-</ul>
+<div class="item">
+<strong>Infrastructure</strong><br>
+<span>Terraform</span>
+</div>
+
+
+<div class="item">
+<strong>Configuration</strong><br>
+<span>Ansible</span>
+</div>
+
+
+<div class="item">
+<strong>Container Platform</strong><br>
+<span>Docker</span>
+</div>
+
+
+<div class="item">
+<strong>Automation</strong><br>
+<span>GitHub Actions</span>
+</div>
+
+
+<div class="item">
+<strong>Server</strong><br>
+<span>Ubuntu Linux / Nginx</span>
+</div>
+
+
+</div>
 
 
 </div>
@@ -325,17 +430,17 @@ Nginx Web Service
 
 
 
-<div class="box">
+<div class="card">
 
 
-<h3>System Workflow</h3>
+<h3>Deployment Architecture</h3>
 
 
-<div class="pipeline">
+<div class="architecture">
 
 
 <div class="node">
-GitHub Repository
+Git Repository
 </div>
 
 
@@ -355,7 +460,7 @@ GitHub Actions
 
 
 <div class="node">
-Ansible Configuration
+Ansible
 </div>
 
 
@@ -365,7 +470,7 @@ Ansible Configuration
 
 
 <div class="node">
-IONOS Cloud Server
+Cloud Server
 </div>
 
 
@@ -385,7 +490,7 @@ Docker Container
 
 
 <div class="node">
-Nginx Web Service
+Nginx Service
 </div>
 
 
@@ -397,8 +502,7 @@ Nginx Web Service
 
 
 
-
-<div class="box">
+<div class="card">
 
 
 <h3>Performed Actions</h3>
@@ -406,13 +510,13 @@ Nginx Web Service
 
 <ul>
 
-<li>Cloud infrastructure provisioned</li>
+<li>Cloud infrastructure provisioned using Terraform</li>
 
-<li>Server configuration automated</li>
+<li>Server configuration automated using Ansible</li>
 
-<li>Docker container deployed</li>
+<li>Container deployment configured with Docker</li>
 
-<li>Deployment workflow configured</li>
+<li>CI/CD workflow integrated using GitHub Actions</li>
 
 </ul>
 
@@ -420,17 +524,51 @@ Nginx Web Service
 </div>
 
 
+</section>
+
+
+
+
+
+<div class="divider"></div>
+
+
+
+
+<section>
+
+
+<h2>Deployment Terminal</h2>
+
+
+<div class="terminal">
+
+ubuntu@server:~$ docker ps
+
+<br><br>
+
+CONTAINER ID&nbsp;&nbsp;&nbsp;&nbsp; IMAGE
+
+<br>
+
+7f83a12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nginx-container
+
+<br><br>
+
+ubuntu@server:~$ deployment running<span class="cursor">_</span>
+
+
 </div>
 
+
+</section>
 
 
 
 
 <div class="footer">
 
-<span class="terminal">
-root@deployment:~$ system operational
-</span>
+CI/CD Infrastructure Documentation
 
 </div>
 
