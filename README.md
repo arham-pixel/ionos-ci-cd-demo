@@ -1,132 +1,119 @@
-# IONOS Cloud CI/CD Infrastructure Demo
+# IONOS CI/CD Infrastructure Demo
 
 
 ## Overview
 
-Automated cloud deployment environment using Infrastructure as Code and CI/CD automation technologies.
+Automated cloud infrastructure deployment using Infrastructure as Code and CI/CD automation.
+
+
+## Technology Stack
+
+- IONOS Cloud
+- Terraform
+- Ansible
+- Docker
+- Nginx
+- GitHub Actions
+- Ubuntu Linux
 
 
 ## Architecture
 
 ```
-Developer Change
-        |
-        v
 GitHub Repository
         |
         v
 GitHub Actions
         |
         v
-Ansible Configuration
+SSH Authentication
         |
         v
-Docker Deployment
+Ansible Deployment
         |
         v
-Nginx Web Application
+Docker Compose
+        |
+        v
+Nginx Container
         |
         v
 IONOS Cloud Server
 ```
 
 
-## Infrastructure Provisioning
+## Infrastructure
 
-Terraform is used to create and manage the cloud infrastructure.
+Terraform manages:
 
-Created resources:
-
-- IONOS Cloud Datacenter
-- Private Network
-- Public Network
-- Virtual Server
-- SSD Storage
-- Network Interfaces
-- Public IP Address
+- IONOS datacenter provisioning
+- Virtual server creation
+- Network configuration
+- Public IP assignment
 
 
-## Configuration Management
+## Configuration
 
-Ansible is used for automated server configuration.
+Ansible manages:
 
-Performed actions:
-
-- Docker service validation
-- Application directory creation
-- Deployment file transfer
+- Server preparation
+- Package configuration
+- Docker environment
 - Application deployment
 
 
 ## Container Deployment
 
-Docker is used to package and run the web application.
+Docker provides:
 
-Components:
-
-- Docker Image
-- Nginx Web Server
-- Docker Compose Deployment
+- Container image creation
+- Nginx web service
+- Application runtime
 
 
-## Continuous Integration / Continuous Deployment
+## CI/CD Workflow
 
-GitHub Actions automates the deployment workflow.
-
-Pipeline steps:
-
-1. Repository checkout
-2. Environment preparation
-3. SSH connection setup
-4. Ansible deployment execution
-5. Container update
+The deployment workflow is automatically triggered after changes are pushed to the main branch.
 
 
-## Technologies
+Deployment sequence:
 
-| Technology | Function |
-|------------|----------|
-| IONOS Cloud | Cloud Infrastructure |
-| Terraform | Infrastructure as Code |
-| Ansible | Configuration Management |
-| Docker | Containerization |
-| Nginx | Web Server |
-| GitHub Actions | CI/CD Automation |
-| Ubuntu Linux | Operating System |
+1. Code changes are pushed to GitHub
+
+2. GitHub Actions starts the workflow
+
+3. SSH authentication connects to the server
+
+4. Ansible executes the deployment
+
+5. Docker Compose rebuilds the container
+
+6. The updated application is deployed
 
 
 ## Repository Structure
 
 ```
-.
-├── terraform
-│   └── Infrastructure definitions
-│
-├── ansible
-│   └── Server configuration
-│
-├── docker
-│   └── Container deployment
-│
-└── .github
-    └── CI/CD workflows
+terraform/
+    Infrastructure provisioning
+
+ansible/
+    Server configuration
+
+docker/
+    Application container
+
+docs/
+    Technical documentation
+
+.github/workflows/
+    CI/CD automation
 ```
 
 
-## Deployment Workflow
+## Documentation
 
-```
-Infrastructure
-      |
-      v
-Server Configuration
-      |
-      v
-Container Build
-      |
-      v
-Application Deployment
-```
+Technical documentation:
 
-
-Last updated: July 2026
+- Architecture overview
+- Deployment process
