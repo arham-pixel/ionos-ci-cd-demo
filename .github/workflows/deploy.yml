@@ -1,43 +1,174 @@
+# ==========================================================
+# GitHub Actions CI/CD Deployment Workflow
+# ==========================================================
+#
+# This workflow automatically deploys the application
+# whenever changes are pushed to the main branch.
+#
+# Deployment chain:
+#
+# GitHub Repository
+#        |
+#        v
+# GitHub Actions Runner
+#        |
+#        v
+# SSH Connection
+#        |
+#        v
+# Ansible Deployment
+#        |
+#        v
+# Docker Container Update
+#
+# ==========================================================
+
+
 name: Deploy Application
+
+
+# ----------------------------------------------------------
+# Trigger configuration
+# ----------------------------------------------------------
+# The workflow starts automatically whenever code is pushed
+# to the main branch.
+# ----------------------------------------------------------
 
 on:
   push:
     branches:
       - main
 
+
+
+# ----------------------------------------------------------
+# Deployment Job
+# ----------------------------------------------------------
+
 jobs:
 
   deploy:
 
+    # GitHub provides a temporary Ubuntu machine
+    # which executes these deployment steps.
     runs-on: ubuntu-latest
+
+
 
     steps:
 
+
+    # ------------------------------------------------------
+    # Step 1: Download repository code
+    # ------------------------------------------------------
+    # The runner needs the project files:
+    # - Ansible playbooks
+    # - inventory
+    # - deployment configuration
+    #
+    # ------------------------------------------------------
+
     - name: Checkout repository
+
       uses: actions/checkout@v4
 
 
+
+
+    # ------------------------------------------------------
+    # Step 2: Install Ansible
+    # ------------------------------------------------------
+    # Ansible is used to configure and deploy the application
+    # on the IONOS server.
+    #
+    # ------------------------------------------------------
+
     - name: Install Ansible
+
       run: |
+
         python3 -m pip install ansible
+
         ansible --version
 
 
-    - name: Setup SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
-        ssh-keyscan 212.227.233.122 >> ~/.ssh/known_hosts
 
+
+    # ------------------------------------------------------
+    # Step 3: Configure SSH access
+    # ------------------------------------------------------
+    #
+    # The private SSH key is stored securely in GitHub Secrets.
+    #
+    # Secrets used:
+    #
+    # SSH_PRIVATE_KEY
+    #     -> private SSH authentication key
+    #
+    # SERVER_HOST
+    #     -> server IP address / hostname
+    #
+    # ------------------------------------------------------
+
+    - name: Setup SSH key
+
+      run: |
+
+        mkdir -p ~/.ssh
+
+
+        # Create SSH private key file
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+
+
+        # Protect key permissions
+        chmod 600 ~/.ssh/id_ed25519
+
+
+        # Trust the server automatically
+        ssh-keyscan ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+
+
+
+    # ------------------------------------------------------
+    # Step 4: Test server connection
+    # ------------------------------------------------------
+    #
+    # Before deployment starts, verify:
+    #
+    # - SSH works
+    # - User can access server
+    # - Docker is available
+    #
+    # ------------------------------------------------------
 
     - name: Test SSH connection
-      run: |
-        ssh ubuntu@212.227.233.122 "docker ps"
 
+      run: |
+
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "docker ps"
+
+
+
+
+    # ------------------------------------------------------
+    # Step 5: Deploy application
+    # ------------------------------------------------------
+    #
+    # Ansible performs:
+    #
+    # 1. Connect to server
+    # 2. Copy application files
+    # 3. Configure Docker deployment
+    # 4. Start/update containers
+    #
+    # ------------------------------------------------------
 
     - name: Deploy application
+
       run: |
+
         ansible-playbook \
         -i ansible/inventory.ini \
         ansible/playbooks/deploy_app.yml
