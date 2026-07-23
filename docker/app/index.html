@@ -1,58 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>IONOS CI/CD Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
+<title>IONOS CI/CD Infrastructure Demo</title>
 
-        .box {
-            background: #1f2937;
-            padding: 40px;
-            border-radius: 15px;
-            display: inline-block;
-        }
+<style>
 
-        h1 {
-            color: #60a5fa;
-        }
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-        .status {
-            color: #34d399;
-            font-size: 22px;
-        }
-    </style>
+body {
+    margin: 0;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+.header {
+    background: #003b70;
+    color: white;
+    padding: 35px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+
+.container {
+    display: flex;
+    min-height: 500px;
+}
+
+
+.column {
+    width: 50%;
+    padding: 40px;
+}
+
+
+.german {
+    background: #eef5fc;
+    border-right: 2px solid #d1d5db;
+}
+
+
+.english {
+    background: #ffffff;
+}
+
+
+h2 {
+    color: #003b70;
+}
+
+
+.card {
+
+    background:white;
+    padding:20px;
+    margin-top:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+
+}
+
+
+ul {
+    line-height:1.8;
+}
+
+
+.footer {
+
+    text-align:center;
+    background:#111827;
+    color:white;
+    padding:20px;
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<div class="box">
 
-<h1>IONOS CI/CD Demo v2</h1>
+<div class="header">
 
-<p class="status">
-Deployment Successful 🚀
-</p>
+<h1>IONOS CI/CD Infrastructure Demo</h1>
 
 <p>
-Updated automatically through:
-</p>
-
-<p>
-GitHub Actions → Ansible → Docker
-</p>
-
-<p>
-Commit: Testing automatic deployment
+Automated Cloud Deployment Platform
 </p>
 
 </div>
 
+
+
+<div class="container">
+
+
+<div class="column german">
+
+<h2>Deutsch</h2>
+
+
+<div class="card">
+
+<h3>Automatisierte Cloud-Bereitstellung</h3>
+
+<p>
+Dieses Projekt demonstriert eine vollständige
+CI/CD Pipeline zur automatisierten Bereitstellung
+einer containerisierten Anwendung.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Technologien</h3>
+
+<ul>
+
+<li>Terraform - Infrastructure as Code</li>
+
+<li>Ansible - Konfigurationsmanagement</li>
+
+<li>Docker - Containerisierung</li>
+
+<li>GitHub Actions - Automatisierte Deployments</li>
+
+<li>IONOS Cloud - Infrastruktur</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="column english">
+
+
+<h2>English</h2>
+
+
+<div class="card">
+
+<h3>Automated Cloud Deployment</h3>
+
+<p>
+This project demonstrates a complete CI/CD
+pipeline for automated deployment of a
+containerized application.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Technologies</h3>
+
+<ul>
+
+<li>Terraform - Infrastructure as Code</li>
+
+<li>Ansible - Configuration Management</li>
+
+<li>Docker - Containerization</li>
+
+<li>GitHub Actions - Automated Deployments</li>
+
+<li>IONOS Cloud - Cloud Infrastructure</li>
+
+</ul>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="footer">
+
+<p>
+Deployment Workflow:
+Terraform → Ansible → Docker → GitHub Actions
+</p>
+
+<p>
+Last changed: 23 July 2026
+</p>
+
+</div>
+
+
 </body>
+
 </html>
