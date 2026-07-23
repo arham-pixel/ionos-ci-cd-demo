@@ -1,39 +1,120 @@
 ---
+# ==========================================================
+# Ansible Deployment Playbook
+# ==========================================================
+#
+# Purpose:
+# Deploy the application to the IONOS Ubuntu server.
+#
+# Deployment steps:
+#
+# 1. Ensure Docker is running
+# 2. Create application directory
+# 3. Copy Docker configuration
+# 4. Copy application source files
+# 5. Rebuild Docker image
+# 6. Start updated container
+#
+# ==========================================================
+
+
 - name: Deploy application
+
   hosts: all
+
   become: true
+
 
   tasks:
 
+
+    # ------------------------------------------------------
+    # Ensure Docker service is available
+    # ------------------------------------------------------
+
     - name: Ensure Docker service is running
+
       ansible.builtin.service:
+
         name: docker
+
         state: started
+
         enabled: true
 
 
+
+    # ------------------------------------------------------
+    # Create deployment directory
+    # ------------------------------------------------------
+
     - name: Create application directory
+
       ansible.builtin.file:
+
         path: /opt/ionos-demo
+
         state: directory
+
         mode: '0755'
 
 
+
+    # ------------------------------------------------------
+    # Copy Docker Compose configuration
+    # ------------------------------------------------------
+
     - name: Copy docker compose file
+
       ansible.builtin.copy:
+
         src: ../../docker/docker-compose.yml
+
         dest: /opt/ionos-demo/docker-compose.yml
+
         mode: '0644'
 
 
+
+    # ------------------------------------------------------
+    # Copy application files
+    #
+    # Contains:
+    # - Dockerfile
+    # - index.html
+    #
+    # ------------------------------------------------------
+
     - name: Copy application files
+
       ansible.builtin.copy:
+
         src: ../../docker/app/
+
         dest: /opt/ionos-demo/app/
+
         mode: '0755'
 
 
+
+    # ------------------------------------------------------
+    # Build and deploy container
+    #
+    # build: always ensures that every deployment uses
+    # the newest application files.
+    #
+    # Equivalent to:
+    #
+    # docker compose up -d --build
+    #
+    # ------------------------------------------------------
+
     - name: Deploy application with docker compose
+
       community.docker.docker_compose_v2:
+
         project_src: /opt/ionos-demo
+
         state: present
+
+        build: always
