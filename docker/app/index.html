@@ -6,103 +6,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CI/CD Infrastructure Deployment Project</title>
+<title>CI/CD Infrastructure Deployment</title>
 
 <style>
 
 * {
     box-sizing: border-box;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
-
 
 body {
 
     margin:0;
-    background:#0d1117;
-    color:#e5e7eb;
+    background:#020617;
+    color:#e2e8f0;
+    font-family:"Courier New", monospace;
 
 }
 
 
-/* Terminal header */
+.page {
+
+    min-height:100vh;
+    padding:40px;
+
+}
+
 
 .header {
 
-    background:#010409;
-    padding:40px;
-    border-bottom:1px solid #30363d;
+    border-bottom:1px solid #334155;
+    padding-bottom:25px;
+    margin-bottom:30px;
 
-}
-
-
-.terminal {
-
-    max-width:1100px;
-    margin:auto;
-
-}
-
-
-.dots span {
-
-    display:inline-block;
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    margin-right:6px;
-
-}
-
-
-.red {
-    background:#ff5f56;
-}
-
-.yellow {
-    background:#ffbd2e;
-}
-
-.green {
-    background:#27c93f;
 }
 
 
 h1 {
 
-    margin-top:25px;
     color:#38bdf8;
-    font-size:34px;
-
-}
-
-
-.subtitle {
-
-    color:#9ca3af;
-    font-size:18px;
-
-}
-
-
-/* Main */
-
-.container {
-
-    max-width:1100px;
-    margin:auto;
-    padding:30px;
-
-}
-
-
-.card {
-
-    background:#161b22;
-    border:1px solid #30363d;
-    border-radius:12px;
-    padding:30px;
-    margin-bottom:25px;
+    font-size:32px;
 
 }
 
@@ -110,104 +52,92 @@ h1 {
 h2 {
 
     color:#38bdf8;
-    border-bottom:1px solid #30363d;
+    border-bottom:1px solid #334155;
     padding-bottom:10px;
 
 }
 
 
-h3 {
+.section {
 
-    color:#22c55e;
-
-}
-
-
-p {
-
-    line-height:1.7;
+    margin-bottom:40px;
 
 }
 
 
-li {
+.box {
 
-    margin:10px 0;
-
-}
-
-
-/* Architecture box */
-
-.workflow {
-
-    background:#010409;
-    border-left:4px solid #22c55e;
+    background:#0f172a;
+    border:1px solid #334155;
+    border-radius:8px;
     padding:20px;
-    font-size:16px;
+    margin-top:20px;
+
+}
+
+
+.pipeline {
+
+    text-align:center;
+    font-size:18px;
+    line-height:2.2;
+
+}
+
+
+.node {
+
+    display:inline-block;
+    padding:12px 25px;
+    border:1px solid #38bdf8;
+    border-radius:6px;
+    background:#0f172a;
+    color:white;
+
+}
+
+
+.arrow {
+
+    color:#38bdf8;
+    font-size:25px;
+
+}
+
+
+.split {
+
+    border-top:2px solid #38bdf8;
+    margin:60px 0;
+
+}
+
+
+ul {
+
     line-height:2;
 
 }
 
 
-/* Two languages */
-
-.columns {
-
-    display:flex;
-    gap:25px;
-
-}
-
-
-.column {
-
-    flex:1;
-
-}
-
-
-.status {
-
-    display:flex;
-    justify-content:space-around;
-    text-align:center;
-
-}
-
-
-.status-box {
-
-    background:#010409;
-    padding:20px;
-    border-radius:10px;
-    width:30%;
-
-}
-
-
-.online {
-
-    color:#22c55e;
-    font-size:22px;
-
-}
-
-
-/* Footer */
-
 .footer {
 
-    text-align:center;
-    color:#9ca3af;
-    padding:30px;
-    border-top:1px solid #30363d;
+    margin-top:50px;
+    border-top:1px solid #334155;
+    padding-top:20px;
+    color:#94a3b8;
+
+}
+
+
+.terminal {
+
+    color:#22c55e;
 
 }
 
 
 </style>
-
 
 </head>
 
@@ -215,186 +145,113 @@ li {
 <body>
 
 
+<div class="page">
+
+
 <div class="header">
 
-<div class="terminal">
-
-<div class="dots">
-<span class="red"></span>
-<span class="yellow"></span>
-<span class="green"></span>
-</div>
-
-
 <h1>
-CI/CD Infrastructure Deployment Project
+CI/CD Infrastruktur Deployment
 </h1>
 
-
-<p class="subtitle">
-Automated Cloud Deployment Environment
-</p>
-
-
-</div>
-
-</div>
-
-
-
-<div class="container">
-
-
-
-<div class="columns">
-
-
-<div class="column">
-
-
-<div class="card">
-
-<h2>Projektübersicht</h2>
-
-
 <p>
-Dieses Projekt beschreibt den Aufbau einer automatisierten Cloud-Deployment-Umgebung.
-Ziel ist eine reproduzierbare Infrastruktur mit automatisierter Konfiguration,
-Containerisierung und Bereitstellung von Anwendungen.
+Cloud Automation Architecture
 </p>
 
+</div>
+
+
+
+<div class="section">
+
+
+<h2>Deutsch</h2>
+
+
+<div class="box">
+
+<h3>Technologien</h3>
+
+
+<ul>
+
+<li>IONOS Cloud</li>
+<li>Terraform</li>
+<li>Ansible</li>
+<li>Docker</li>
+<li>GitHub Actions</li>
+<li>Ubuntu Server</li>
+<li>Nginx</li>
+
+</ul>
+
 
 </div>
 
 
 
+<div class="box">
+
+
+<h3>System Workflow</h3>
+
+
+<div class="pipeline">
+
+
+<div class="node">
+GitHub Repository
 </div>
 
 
-
-<div class="column">
-
-
-<div class="card">
-
-<h2>Project Overview</h2>
-
-
-<p>
-This project describes the implementation of an automated cloud deployment environment.
-The objective is a reproducible infrastructure with automated configuration,
-containerization and application deployment.
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h2>System Architecture</h2>
-
-
-<div class="workflow">
-
-Infrastructure as Code
-
-<br>
+<div class="arrow">
 ↓
+</div>
 
-<br>
 
-Terraform
+<div class="node">
+GitHub Actions
+</div>
 
-<br>
+
+<div class="arrow">
 ↓
+</div>
 
-<br>
 
-Cloud Infrastructure
-
-<br>
-↓
-
-<br>
-
+<div class="node">
 Ansible Configuration
+</div>
 
-<br>
+
+<div class="arrow">
 ↓
+</div>
 
-<br>
 
+<div class="node">
+IONOS Cloud Server
+</div>
+
+
+<div class="arrow">
+↓
+</div>
+
+
+<div class="node">
 Docker Container
+</div>
 
-<br>
+
+<div class="arrow">
 ↓
-
-<br>
-
-Automated Application Deployment
-
-
 </div>
 
 
+<div class="node">
+Nginx Web Service
 </div>
-
-
-
-
-
-<div class="columns">
-
-
-<div class="column">
-
-
-<div class="card">
-
-
-<h2>Umsetzung</h2>
-
-
-<h3>Infrastruktur</h3>
-
-
-<ul>
-
-<li>Virtueller Cloud Server</li>
-
-<li>Netzwerk-Konfiguration</li>
-
-<li>Speicherverwaltung</li>
-
-<li>Infrastructure as Code</li>
-
-</ul>
-
-
-
-<h3>Deployment</h3>
-
-
-<ul>
-
-<li>Automatisierte Server-Konfiguration</li>
-
-<li>Containerbereitstellung</li>
-
-<li>Versionskontrollierte Änderungen</li>
-
-</ul>
-
 
 
 </div>
@@ -404,44 +261,21 @@ Automated Application Deployment
 
 
 
+<div class="box">
 
 
-<div class="column">
-
-
-<div class="card">
-
-
-<h2>Implementation</h2>
-
-
-<h3>Infrastructure</h3>
+<h3>Durchgeführte Aktionen</h3>
 
 
 <ul>
 
-<li>Virtual cloud server</li>
+<li>Cloud Infrastruktur bereitgestellt</li>
 
-<li>Network configuration</li>
+<li>Server Konfiguration automatisiert</li>
 
-<li>Storage management</li>
+<li>Docker Container erstellt</li>
 
-<li>Infrastructure as Code</li>
-
-</ul>
-
-
-
-<h3>Deployment</h3>
-
-
-<ul>
-
-<li>Automated server configuration</li>
-
-<li>Container deployment</li>
-
-<li>Version-controlled changes</li>
+<li>Deployment Workflow eingerichtet</li>
 
 </ul>
 
@@ -452,40 +286,36 @@ Automated Application Deployment
 </div>
 
 
-</div>
+
+
+
+<div class="split"></div>
 
 
 
 
 
-<div class="card">
+<div class="section">
 
 
-<h2>Technology Stack</h2>
+<h2>English</h2>
+
+
+<div class="box">
+
+
+<h3>Technologies</h3>
 
 
 <ul>
 
-<li>
-Terraform - Infrastructure as Code
-</li>
-
-<li>
-Ansible - Configuration Management
-</li>
-
-<li>
-Docker - Application Containerization
-</li>
-
-<li>
-GitHub Actions - CI/CD Automation
-</li>
-
-<li>
-Cloud Infrastructure - Hosting Environment
-</li>
-
+<li>IONOS Cloud</li>
+<li>Terraform</li>
+<li>Ansible</li>
+<li>Docker</li>
+<li>GitHub Actions</li>
+<li>Ubuntu Server</li>
+<li>Nginx</li>
 
 </ul>
 
@@ -495,87 +325,99 @@ Cloud Infrastructure - Hosting Environment
 
 
 
+<div class="box">
 
-<div class="card">
+
+<h3>System Workflow</h3>
 
 
-<h2>Qualitätsmerkmale / Quality Principles</h2>
+<div class="pipeline">
+
+
+<div class="node">
+GitHub Repository
+</div>
+
+
+<div class="arrow">
+↓
+</div>
+
+
+<div class="node">
+GitHub Actions
+</div>
+
+
+<div class="arrow">
+↓
+</div>
+
+
+<div class="node">
+Ansible Configuration
+</div>
+
+
+<div class="arrow">
+↓
+</div>
+
+
+<div class="node">
+IONOS Cloud Server
+</div>
+
+
+<div class="arrow">
+↓
+</div>
+
+
+<div class="node">
+Docker Container
+</div>
+
+
+<div class="arrow">
+↓
+</div>
+
+
+<div class="node">
+Nginx Web Service
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>Performed Actions</h3>
 
 
 <ul>
 
-<li>Reproduzierbare Bereitstellungen / Reproducible deployments</li>
+<li>Cloud infrastructure provisioned</li>
 
-<li>Versionskontrollierte Änderungen / Version-controlled changes</li>
+<li>Server configuration automated</li>
 
-<li>Automatisierte Prozesse / Automated workflows</li>
+<li>Docker container deployed</li>
 
-<li>Dokumentierte Infrastruktur / Documented infrastructure</li>
-
-<li>Nachvollziehbare Deployments / Traceable deployments</li>
-
+<li>Deployment workflow configured</li>
 
 </ul>
 
 
 </div>
-
-
-
-
-
-<div class="card">
-
-
-<h2>System Status</h2>
-
-
-<div class="status">
-
-
-<div class="status-box">
-
-<p>Infrastructure</p>
-
-<div class="online">
-● READY
-</div>
-
-</div>
-
-
-
-<div class="status-box">
-
-<p>Deployment</p>
-
-<div class="online">
-● ACTIVE
-</div>
-
-</div>
-
-
-
-<div class="status-box">
-
-<p>Container</p>
-
-<div class="online">
-● RUNNING
-</div>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
 
 
 </div>
@@ -586,30 +428,17 @@ Cloud Infrastructure - Hosting Environment
 
 <div class="footer">
 
-
-<h3>Document Information</h3>
-
-
-<p>
-Author: Arham Khan
-</p>
-
-
-<p>
-Version: 1.0
-</p>
-
-
-<p>
-Last modified: 23 July 2026
-</p>
-
+<span class="terminal">
+root@deployment:~$ system operational
+</span>
 
 </div>
 
 
 
-</body>
+</div>
 
+
+</body>
 
 </html>
