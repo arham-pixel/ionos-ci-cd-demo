@@ -1,12 +1,43 @@
+# ==========================================================
+# IONOS CI/CD Infrastructure Demo
+#
+# Docker Compose deployment configuration.
+#
+# Defines how the web container is built and executed.
+#
+# ==========================================================
+
+
 services:
 
+
+  # Web application container
+  #
+  # Builds the nginx image from the application directory
+
   web:
+
     build:
+
       context: ./app
+
+
+
+    # Fixed container name for easier administration
 
     container_name: ionos-demo-web
 
+
+
+    # Exposes nginx HTTP service
+
     ports:
+
       - "80:80"
+
+
+
+    # Automatically restart container after failure
+    # or server reboot
 
     restart: always
