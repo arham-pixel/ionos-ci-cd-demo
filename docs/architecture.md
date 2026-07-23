@@ -1,21 +1,52 @@
 # Architecture
 
-## Infrastructure
+
+## Infrastructure Layer
 
 IONOS Cloud provides:
 
 - Datacenter
-- Networks
 - Virtual Server
-- Public IP
+- Network configuration
+- Public IP connectivity
 
-Terraform manages infrastructure lifecycle.
 
-## Server
+Terraform manages:
 
-Operating system:
+- Infrastructure provisioning
+- Network creation
+- Server deployment
+- Resource lifecycle management
+
+
+
+## Configuration Layer
+
+Ansible manages:
+
+- Server preparation
+- Package configuration
+- Docker environment
+- Application deployment
+
+
+
+## Application Layer
+
+Docker provides:
+
+- Container runtime
+- Nginx web service
+- Application delivery
+
+
+
+## Server Configuration
+
+Operating System:
 
 Ubuntu 24.04 LTS
+
 
 Resources:
 
@@ -23,19 +54,14 @@ Resources:
 - 2 GB RAM
 - 20 GB SSD
 
-## Network
+
+## Network Design
 
 Private LAN:
-- Internal communication
+
+Used for internal communication.
+
 
 Public LAN:
-- Internet access
 
-## Configuration
-
-Ansible will manage:
-
-- Packages
-- Users
-- Security
-- Application deployment
+Used for external connectivity.
